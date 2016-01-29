@@ -97,7 +97,7 @@ $ docker run --name some-kibana \
 
 
 ## 问题讨论
-- [GitHub issue]()
+- [GitHub issue](https://github.com/goodrain-apps/kibana/issues)
 - [kibana 好雨云社区讨论](http://t.goodrain.com/t/kibana/123)
 
 ## 参与项目
