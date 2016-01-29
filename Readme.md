@@ -92,13 +92,13 @@ $ docker run --name some-kibana \
 # 用户反馈
 ## 相关文档
 
-- [kibana 4.3 镜像说明文档]()
+- [kibana 4.3 镜像说明文档](https://github.com/goodrain-apps/kibana/blob/master/Readme.md)
 - [kibana 中文文档](http://kibana.logstash.es/content/kibana/index.html)
 
 
 ## 问题讨论
 - [GitHub issue]()
-- [kibana 好雨云社区讨论]()
+- [kibana 好雨云社区讨论](http://t.goodrain.com/t/kibana/123)
 
 ## 参与项目
 如果你觉得这个镜像很有用或者愿意共同改进项目，可以通过如下形式参与：
