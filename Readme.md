@@ -25,7 +25,7 @@
 
 # 部署到好雨云
 ## ELK结构
-![elk](https://github.com/goodrain-apps/logstash/blob/master/2.1/img/elk_dockerfile.png)
+![elk](https://github.com/goodrain-apps/logstash/blob/master/img/elk_dockerfile.png)
 
 ## 一键部署
 通过点击本文最上方的 “安装到好雨云” 按钮会跳转到 好雨应用市场的应用首页中，可以通过一键部署按钮安装
