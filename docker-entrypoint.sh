@@ -7,6 +7,8 @@ if [[ "$1" == -* ]]; then
 	set -- kibana "$@"
 fi
 
+ELASTICSEARCH_URL="http://${ELASTICSEARCH_HOST:-127.0.0.1}:${ELASTICSEARCH_PORT:-9200}"
+
 # Run as user "kibana" if the command is "kibana"
 if [ "$1" = 'kibana' ]; then
 	if [ "$ELASTICSEARCH_URL" -o "$ELASTICSEARCH_PORT_9200_TCP" ]; then
