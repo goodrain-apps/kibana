@@ -2,12 +2,13 @@
 
 set -e
 
+ELASTICSEARCH_URL="http://${ELASTICSEARCH_HOST:-127.0.0.1}:${ELASTICSEARCH_PORT:-9200}"
+NODE_OPTIONS="--max-old-space-size=250"
+
 # Add kibana as command if needed
 if [[ "$1" == -* ]]; then
 	set -- kibana "$@"
 fi
-
-NODE_OPTIONS="--max-old-space-size=250"
 
 # Run as user "kibana" if the command is "kibana"
 if [ "$1" = 'kibana' ]; then
