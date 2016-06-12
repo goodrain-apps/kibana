@@ -1,7 +1,10 @@
 FROM goodrain.me/debian:jessie
 
 # add our user and group first to make sure their IDs get assigned consistently
-#RUN groupadd -r kibana && useradd -r -m -g kibana kibana
+RUN groupadd -r -g 200 kibana && useradd -u 200 -r -m -g kibana kibana
+
+# 时区设置
+RUN echo "Asia/Shanghai" > /etc/timezone;dpkg-reconfigure -f noninteractive tzdata
 
 RUN apt-get update && apt-get install -y ca-certificates curl --no-install-recommends && rm -rf /var/lib/apt/lists/*
 
@@ -23,7 +26,7 @@ RUN set -x \
 	&& echo "${KIBANA_SHA1}  kibana.tar.gz" | sha1sum -c - \
 	&& mkdir -p /opt/kibana \
 	&& tar -xz --strip-components=1 -C /opt/kibana -f kibana.tar.gz \
-	&& chown -R rain:rain /opt/kibana \
+	&& chown -R kibana:kibana /opt/kibana \
 	&& rm kibana.tar.gz
 
 ENV PATH /opt/kibana/bin:$PATH
