@@ -1,7 +1,11 @@
 FROM debian:jessie
 
 # add our user and group first to make sure their IDs get assigned consistently
-RUN groupadd -r kibana && useradd -r -m -g kibana kibana
+RUN groupadd -r -g 200 kibana && useradd -u 200 -r -m -g kibana kibana
+
+# 时区设置
+RUN echo "Asia/Shanghai" > /etc/timezone;dpkg-reconfigure -f noninteractive tzdata
+
 
 RUN apt-get update && apt-get install -y \
 		ca-certificates \
@@ -47,11 +51,7 @@ RUN set -x \
 	&& apt-get update \
 	&& apt-get install -y --no-install-recommends kibana=$KIBANA_VERSION \
 	&& chown -R kibana:kibana /opt/kibana \
-	&& rm -rf /var/lib/apt/lists/* \
-	\
-# ensure the default configuration is useful when using --link
-	&& sed -ri "s!^(\#\s*)?(elasticsearch\.url:).*!\2 'http://elasticsearch:9200'!" /opt/kibana/config/kibana.yml \
-	&& grep -q 'elasticsearch:9200' /opt/kibana/config/kibana.yml
+	&& rm -rf /var/lib/apt/lists/* 
 
 ENV PATH /opt/kibana/bin:$PATH
 
