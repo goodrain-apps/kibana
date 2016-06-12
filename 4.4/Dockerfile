@@ -1,7 +1,10 @@
-FROM goodrain.me/debian:jessie
+FROM debian:jessie
 
 # add our user and group first to make sure their IDs get assigned consistently
-RUN groupadd -r kibana && useradd -r -m -g kibana kibana
+RUN groupadd -r -g 200 kibana && useradd -u 200 -r -m -g kibana kibana
+
+# 时区设置
+RUN echo "Asia/Shanghai" > /etc/timezone;dpkg-reconfigure -f noninteractive tzdata
 
 RUN apt-get update && apt-get install -y ca-certificates curl --no-install-recommends && rm -rf /var/lib/apt/lists/*
 
