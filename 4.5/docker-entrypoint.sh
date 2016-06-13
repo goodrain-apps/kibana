@@ -15,7 +15,7 @@ if [ "$1" = 'kibana' ]; then
 		sed -ri "s!^(\#\s*)?(elasticsearch\.url:).*!\2 '$ELASTICSEARCH_URL'!" /opt/kibana/config/kibana.yml
 	fi
 
-	set -- gosu kibana tini -- "$@"
+	set -- gosu kibana "$@"
 fi
 
 exec "$@"
