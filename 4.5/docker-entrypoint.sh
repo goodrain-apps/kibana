@@ -4,6 +4,7 @@
 
 sleep ${PAUSE:-0}
 
+PATH="$PATH:/opt/kibana/bin"
 ELASTICSEARCH_URL="http://${ELASTICSEARCH_HOST:-127.0.0.1}:${ELASTICSEARCH_PORT:-9200}"
 NODE_OPTIONS="--max-old-space-size=250"
 
