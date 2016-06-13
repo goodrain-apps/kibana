@@ -56,7 +56,7 @@ RUN set -x \
 
 ENV PATH /opt/kibana/bin:$PATH
 
-COPY docker-entrypoint.sh /
+COPY 4.5/docker-entrypoint.sh /
 
 EXPOSE 5601
 ENTRYPOINT ["/docker-entrypoint.sh"]
