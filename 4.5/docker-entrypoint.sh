@@ -1,5 +1,8 @@
 #!/bin/bash
-set -e
+
+[ $DEBUG ] && set -x
+
+sleep ${PAUSE:-0}
 
 ELASTICSEARCH_URL="http://${ELASTICSEARCH_HOST:-127.0.0.1}:${ELASTICSEARCH_PORT:-9200}"
 NODE_OPTIONS="--max-old-space-size=250"
